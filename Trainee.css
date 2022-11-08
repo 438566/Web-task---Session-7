@@ -5,14 +5,20 @@
 }
 
 body {
+    width: var(--screen-width);
     height: 100vh;
     overflow: hidden;
     background-color: rgba(0, 75, 65, 0.822);
 }
 
+:root {
+    --screen-width: 100vw;
+}
+
 /* Header */
 
 header {
+    position: absolute;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -20,7 +26,7 @@ header {
 .title {
     display: flex;
     justify-content: center;
-    font-size: 3rem;
+    font-size: calc(var(--screen-width) / 40);
     margin-bottom: 20px;
     color: white;
     padding-left: 20px;
@@ -43,10 +49,11 @@ a {
     background-color: transparent;
     color: white;
     text-decoration: none;
+    z-index: 1;
 }
 
 a:nth-child(1){
-    color: aqua;
+    color: rgb(0, 132, 255);
     transition: 0.5s;
     width: 120px;
     height: 50px;
@@ -55,20 +62,20 @@ a:nth-child(1){
 }
 
 a:nth-child(1):hover{
-    background-color: aqua;
+    background-color: rgb(0, 132, 255);
     color: black;
     border-radius: 15px;
 }
 
 a:nth-child(2){
-    color: rgb(0, 132, 255);
+    color: aqua;
     transition: 0.5s;
     width: 150px;
     height: 50px;
 }
 
 a:nth-child(2):hover{
-    background-color: rgb(0, 132, 255);
+    background-color: aqua;
     color: black;
     border-radius: 15px;
 }
@@ -76,18 +83,17 @@ a:nth-child(2):hover{
 /* About us */
 
 main {
-    width: 90%;
-    height: 50%;
-    border: 5px solid black;
-    position: relative;
-    left: 100px;
-    top: 100px;
-
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
 }
 
 .about-us {
-    font-size: 2.5rem;
-    color: white;
+    width: 50ch;
+    font-size: calc(var(--screen-width) / 50);
 }
 
 /* Footer */
@@ -98,40 +104,22 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    position: absolute;
+    bottom: calc(var(--screen-width) / 50);
 }
 
 .footer {
-    font-size: 2rem;
+    font-size: calc(var(--screen-width) / 50);
     color: white;
 }
 
 /* Wave */
 
 .svg1 {
-    position: relative;
-    bottom: 400px;
+    position: absolute;
+    bottom: calc(var(--screen-width) / 5000);
     z-index: -1;
 }
-
-.svg2 {
-    position: relative;
-    bottom: 800px;
-    z-index: -1;
-    animation: move 15s linear infinite;
-}
-
-@keyframes move {
-    0% {
-        bottom: 750px;
-    }
-    50% {
-        bottom: 800px;
-    }
-    100% {
-        bottom: 750px;
-    }
-}
-
 /* Media query */
 
 @media screen and (max-width: 1440px){
